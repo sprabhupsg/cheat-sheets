@@ -9,15 +9,20 @@
 **Template:**
 
 ```cpp
-int fixedWindow(vector<int>& nums, int k) {
-    int n = nums.size(), windowSum = 0, best = INT_MIN;
 
-    for (int i = 0; i < n; i++) {
-        windowSum += nums[i];
-        if (i >= k) windowSum -= nums[i - k];
-        if (i >= k - 1) best = max(best, windowSum);
+int maxSumSubarrayK(vector<int>& nums, int k) {
+    int n = nums.size();
+    int sum = 0, ans = 0;
+
+    for (int i = 0; i < k; i++) sum += nums[i];
+    ans = sum;
+
+    for (int r = k; r < n; r++) {
+        sum += nums[r];
+        sum -= nums[r - k];
+        ans = max(ans, sum);
     }
-    return best;
+    return ans;
 }
 ```
 
