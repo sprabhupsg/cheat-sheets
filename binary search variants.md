@@ -111,4 +111,3 @@ int searchRotated(const vector<int>& nums, int target) {
 - Match and go right: last occurrence.
 - Find sorted half first: rotated array.
 
-Would you like a compact version in **one reusable template** with comments for interview revision?
