@@ -7,9 +7,8 @@
 **When to use:** Window size `k` is given upfront.
 
 **Template:**
-
+version 0
 ```cpp
-
 int maxSumSubarrayK(vector<int>& nums, int k) {
     int n = nums.size();
     int sum = 0, ans = 0;
@@ -26,6 +25,19 @@ int maxSumSubarrayK(vector<int>& nums, int k) {
 }
 ```
 
+version 1
+```cpp
+int maxSumSubarrayK(vector<int>& nums, int k) {
+    int n = nums.size(), sum = 0, ans = INT_MIN;
+
+    for (int i = 0; i < n; i++) {
+        sum += nums[i];
+        if (i >= k) sum -= nums[i - k];
+        if (i >= k - 1) ans = max(ans, sum);
+    }
+    return ans;
+}
+```
 **Classic problems:**
 - Max / Min sum subarray of size k
 - Maximum of all subarrays of size k (use deque — see Pattern 5)
