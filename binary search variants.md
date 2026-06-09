@@ -349,4 +349,3 @@ int minMaxSplit(const vector<int>& arr, int k) {
 - **Rotated min:** compare `mid` with `high`; chase the unsorted half.
 - **Search on answer:** forget the array — binary search the *result space* with a predicate.
 
-Want me to save all of this into a single `.md` or `.cpp` reference file in your workspace?
